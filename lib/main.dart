@@ -1,3 +1,4 @@
+import 'package:f_project/screens/album_songs_screen.dart';
 import 'package:f_project/screens/explore_screen.dart';
 import 'package:f_project/screens/library_screen.dart';
 import 'package:f_project/screens/search_screen.dart';
@@ -38,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     TrendingScreen(),
     SearchScreen(),
     LibraryScreen(),
-    LibraryScreen()
+    AlbumSongsScreen()
   ];
   void _onTap(int index) {
     setState(() {

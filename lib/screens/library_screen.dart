@@ -50,37 +50,47 @@ class LibraryScreen extends StatelessWidget {
 
   Widget AlbumsCollapse(String title, List<String> list) {
     return Stack(children: [
-      ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: GridView(
-          physics: NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-          children: [
-            CachedNetworkImage(
-              imageUrl: list[0],
+      ShaderMask(
+        shaderCallback: (rect) {
+          return LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Colors.transparent, Colors.black.withOpacity(0.8)],
+          ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));
+        },
+        blendMode: BlendMode.colorBurn,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+            child: GridView(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2),
+              children: [
+                CachedNetworkImage(
+                  imageUrl: list[0],
+                ),
+                CachedNetworkImage(
+                  imageUrl: list[1],
+                ),
+                CachedNetworkImage(
+                  imageUrl: list[2],
+                ),
+                CachedNetworkImage(
+                  imageUrl: list[3],
+                ),
+              ],
             ),
-            CachedNetworkImage(
-              imageUrl: list[1],
-            ),
-            CachedNetworkImage(
-              imageUrl: list[2],
-            ),
-            CachedNetworkImage(
-              imageUrl: list[3],
-            ),
-          ],
+          ),
         ),
       ),
-      Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.3),
-            borderRadius: BorderRadius.circular(20)),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+      Padding(
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+        child: SizedBox(
+          height: double.infinity,
+          width: double.infinity,
           child: Align(
             alignment: Alignment.bottomLeft,
             child: Text(
