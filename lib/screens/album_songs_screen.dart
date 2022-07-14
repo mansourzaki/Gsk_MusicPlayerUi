@@ -25,22 +25,26 @@ class AlbumSongsScreen extends StatelessWidget {
           headerSliverBuilder: (context, innerBoxIsScrolled) {
             return [
               SliverAppBar(
-                collapsedHeight: 200,
+                collapsedHeight: 100,
                 expandedHeight: 300,
                 floating: true,
                 pinned: true,
+                leading: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Icon(Icons.arrow_back)),
                 bottom: PreferredSize(
+                    preferredSize: const Size.fromHeight(50),
                     child: Transform.translate(
-                        offset: Offset(130, 28),
-                        child: CircleAvatar(
+                        offset: const Offset(150, 28),
+                        child: const CircleAvatar(
                           backgroundColor: Colors.pink,
                           minRadius: 30,
                           child: Icon(
                             Icons.play_arrow,
                             size: 30,
+                            color: Colors.white,
                           ),
-                        )),
-                    preferredSize: Size.fromHeight(50)),
+                        ))),
                 flexibleSpace: Container(
                   padding: const EdgeInsets.all(18),
                   decoration: const BoxDecoration(
@@ -78,7 +82,7 @@ class AlbumSongsScreen extends StatelessWidget {
                   style: GoogleFonts.poppins(
                       color: Colors.pink, fontWeight: FontWeight.w300)),
               title: Text(songs[i], style: GoogleFonts.poppins(fontSize: 18)),
-              subtitle: Text('Divide'),
+              subtitle: const Text('Divide'),
             ),
           )),
     );

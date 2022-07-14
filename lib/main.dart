@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: AppTheme.light(),
+      debugShowCheckedModeBanner: false,
       home: const MyHomePage(),
     );
   }
@@ -89,9 +90,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       Icons.library_music,
                     )),
                 BottomNavigationBarItem(
-                    label: 'SETTINGS',
+                    label: 'Album',
                     icon: Icon(
-                      Icons.settings,
+                      Icons.album,
                     )),
               ])
         ],

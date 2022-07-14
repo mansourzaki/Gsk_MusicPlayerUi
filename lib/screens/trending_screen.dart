@@ -7,9 +7,14 @@ import 'package:google_fonts/google_fonts.dart';
 import '../constants.dart';
 import '../themes.dart';
 
-class TrendingScreen extends StatelessWidget {
+class TrendingScreen extends StatefulWidget {
   const TrendingScreen({Key? key}) : super(key: key);
 
+  @override
+  State<TrendingScreen> createState() => _TrendingScreenState();
+}
+
+class _TrendingScreenState extends State<TrendingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

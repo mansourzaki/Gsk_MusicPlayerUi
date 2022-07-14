@@ -1,8 +1,7 @@
 import 'package:f_project/constants.dart';
 import 'package:f_project/widgets/song_list_tile.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -16,6 +15,12 @@ class SearchScreen extends StatelessWidget {
     {'name': 'I\'m a Believer ', 'artist': 'Various Artists', 'url': null},
     {'name': 'True Believers ', 'artist': 'Eric Bogle', 'url': null}
   ];
+  final List<String> urls = const [
+    'assets/images/ts1989.png',
+    'assets/images/a1.webp',
+    'assets/images/a2.webp'
+  ];
+  final List<String> names = const ['1989', 'Rock Band\'s', 'The Unknown'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,60 +45,64 @@ class SearchScreen extends StatelessWidget {
         elevation: 0,
       ),
       body: SingleChildScrollView(
-          child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Row(
-              children: [
-                Text(
-                  'Search history',
-                  style: GoogleFonts.poppins(
-                      fontSize: 24, fontWeight: FontWeight.w500),
-                ),
-                Spacer(),
-                Text(
-                  'SHOW ALL',
-                  style: GoogleFonts.poppins(fontSize: 13, color: Colors.pink),
-                ),
-                SizedBox(width: 5,),
-                Icon(Icons.arrow_forward_ios,size: 12,color: Colors.pink,)
-              ],
-            ),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+            children: [
+              Text(
+                'Search history',
+                style: GoogleFonts.poppins(
+                    fontSize: 24, fontWeight: FontWeight.w500),
+              ),
+              Spacer(),
+              Text(
+                'SHOW ALL',
+                style: GoogleFonts.poppins(fontSize: 13, color: Colors.pink),
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Icon(
+                Icons.arrow_forward_ios,
+                size: 12,
+                color: Colors.pink,
+              )
+            ],
           ),
-          const SizedBox(
-            height: 10,
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        ListView.builder(
+            shrinkWrap: true,
+            itemCount: songs.length,
+            itemBuilder: (context, i) => SongListTile(
+                songName: songs[i]['name'],
+                artisit: songs[i]['artist'],
+                url: songs[i]['url'])),
+        const SizedBox(
+          height: 10,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Text(
+            'Albums',
+            style:
+                GoogleFonts.poppins(fontSize: 24, fontWeight: FontWeight.w500),
           ),
-          ListView.builder(
-              shrinkWrap: true,
-              itemCount: songs.length,
-              itemBuilder: (context, i) => SongListTile(
-                  songName: songs[i]['name'],
-                  artisit: songs[i]['artist'],
-                  url: songs[i]['url'])),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Text(
-              'Albums',
-              style: GoogleFonts.poppins(
-                  fontSize: 24, fontWeight: FontWeight.w500),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          buildOneTitleListView(context,
-              url: 'assets/images/dragons.jpg',
-              name: 'Believer',
-              count: 2,
-              height: 200,
-              height2: 170)
-        ],
-      )),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        buildOneTitleListView(context,
+            url: 'assets/images/dragons.jpg',
+            name: 'Believer',
+            count: 2,
+            height: 200,
+            height2: 170)
+      ])),
     );
   }
 }

@@ -5,6 +5,7 @@ import 'widgets/genres_card.dart';
 
 List<String> genres = const ['Pop', 'Hip-Hop', 'Jazz', 'Electronic', 'Folk'];
 Color pink = Color(0xff2D55);
+List<bool> bools = [true, false, false, false, false];
 Widget buildGenresListView(BuildContext context, double height) {
   return SizedBox(
     height: height,
@@ -14,6 +15,7 @@ Widget buildGenresListView(BuildContext context, double height) {
       itemCount: 5,
       itemBuilder: (context, i) => GenresCard(
         genre: genres[i],
+        isSelected: bools[i],
       ),
     ),
   );

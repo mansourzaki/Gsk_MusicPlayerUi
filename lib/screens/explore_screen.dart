@@ -9,7 +9,7 @@ import '../constants.dart';
 
 class ExploreScreen extends StatelessWidget {
   const ExploreScreen({Key? key}) : super(key: key);
-
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,8 +65,7 @@ class ExploreScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            buildOneTitleListView(context,
-                url: 'assets/images/ed.webp', name: 'Ed Sheeran'),
+            buildOneTitleListView(context, url: 'assets/images/ts1989.png', name: '1989'),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
@@ -78,7 +77,7 @@ class ExploreScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            buildGenresListView(context,80),
+            buildGenresListView(context, 80),
             SizedBox(
               height: 10,
             )
@@ -87,8 +86,6 @@ class ExploreScreen extends StatelessWidget {
       ),
     );
   }
-
-  
 
   Widget _buildRecommendedForYouListView(BuildContext context) {
     return SizedBox(

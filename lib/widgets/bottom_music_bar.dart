@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
-class BottomMusicBar extends StatelessWidget {
+class BottomMusicBar extends StatefulWidget {
   const BottomMusicBar({Key? key}) : super(key: key);
 
+  @override
+  State<BottomMusicBar> createState() => _BottomMusicBarState();
+}
+
+class _BottomMusicBarState extends State<BottomMusicBar> {
+  bool _isSelected = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,12 +25,23 @@ class BottomMusicBar extends StatelessWidget {
         title: const Text('014 The Art of Communication'),
         subtitle: const Text('The Futur'),
         trailing: IconButton(
-          onPressed: () {},
-          icon: Icon(
-            size: 32,
-            Icons.pause,
-            color: Colors.black,
-          ),
+          onPressed: () {
+            _isSelected = !_isSelected;
+            setState(() {
+                
+            });
+          },
+          icon: _isSelected
+              ? Icon(
+                  size: 32,
+                  Icons.play_arrow,
+                  color: Colors.black,
+                )
+              : Icon(
+                  size: 32,
+                  Icons.pause,
+                  color: Colors.black,
+                ),
         ),
       ),
     );
